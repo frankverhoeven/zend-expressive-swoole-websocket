@@ -1,0 +1,47 @@
+{
+  "name": "frankverhoeven/zend-expressive-swoole-websocket",
+  "type": "project",
+  "keywords": [
+    "Frank Verhoeven",
+    "Zend Expressive",
+    "Swoole",
+    "Websocket"
+  ],
+  "homepage": "https://frankverhoeven.me/",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "^7.2",
+    "prooph/service-bus": "^6.2",
+    "zendframework/zend-expressive-swoole": "^0.1.1",
+    "psr/container": "^1.0",
+    "sandrokeil/interop-config": "^2.1"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^0.10.0",
+    "phpunit/phpunit": "^7.3",
+    "squizlabs/php_codesniffer": "^3.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "FrankVerhoeven\\Expressive\\Swoole\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "FrankVerhoevenTest\\Expressive\\Swoole\\": "test/"
+    }
+  },
+  "scripts": {
+    "check": [
+      "@cs-check",
+      "@test",
+      "@analyze"
+    ],
+    "analyze": "phpstan analyze -l max ./src",
+    "cs-check": "phpcs",
+    "cs-fix": "phpcbf",
+    "test": "phpunit --colors=always",
+    "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+  }
+}
